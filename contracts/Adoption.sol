@@ -10,9 +10,13 @@ function adopt(uint petId) public returns (uint) {
 
     require(petId >= 0 && petId <= 15); //ensure that the petId is within the range of adopters array (starts from 0)
 
-    adopters[petId] = msg.sender; //Add address of the person / smart contract that made the call (denoted by msg.sender) to the adopters array
+    adopters[petId] = msg.sender; //Add address of the person or smart contract that made the call (denoted by msg.sender) to the adopters array
 
     return petId; //return an integer (as function specified) as a confirmation
+}
+
+function getAdopters() public view returns(address[16]) {
+    return adopters;
 }
 
 }
